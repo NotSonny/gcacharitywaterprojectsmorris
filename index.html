@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity: Water</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff9ef; /* light cream background */
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+
+    header img.logo {
+      max-width: 300px; /* Increased size from 200px to 300px */
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .hero img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 10px;
+    }
+
+    .hero-text {
+      max-width: 500px;
+      margin: 20px;
+      text-align: center; /* This centers the button and text */
+    }
+
+    .hero-text h1 {
+      font-size: 2rem;
+      color: #0a2a66; /* deep blue for contrast */
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #FFD200; /* yellow button */
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background 0.3s ease, transform 0.3s ease; /* Add transition for animation */
+    }
+
+    .btn:hover {
+      background-color: #e6be00;
+      /* Beginner-friendly: Make the button grow a bit when hovered */
+      transform: scale(1.12); /* Grows the button by 12% */
+    }
+
+    .impact {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .impact img {
+      max-width: 200px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background-color: #0a2a66; /* deep blue footer */
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    footer .btn {
+      background-color: #FFD200;
+      color: #000;
+    }
+
+    footer .btn:hover {
+      background-color: #e6be00;
+    }
+
+    /* Make images fade in when the page loads */
+    img {
+      opacity: 0; /* Start invisible */
+      transition: opacity 1.2s ease; /* Smooth fade-in */
+    }
+
+    img.visible {
+      opacity: 1; /* Fade to visible */
+    }
+
+    /* Responsive styles for smaller screens */
+    @media (max-width: 600px) {
+      header img.logo {
+        max-width: 180px; /* Make logo smaller on phones */
+      }
+
+      .hero {
+        flex-direction: column; /* Stack hero image and text vertically */
+        padding: 20px 10px;
+      }
+
+      .hero img {
+        max-width: 90vw; /* Image fills most of screen width */
+        margin: 10px auto;
+        display: block;
+      }
+
+      .hero-text {
+        max-width: 100%;
+        margin: 10px 0;
+        padding: 0 5px;
+      }
+
+      .hero-text h1 {
+        font-size: 1.3rem;
+      }
+
+      .impact {
+        padding: 20px 10px;
+      }
+
+      .impact img {
+        max-width: 90vw;
+      }
+
+      footer {
+        padding: 20px 10px;
+      }
+    }
+
+    /* Responsive styles for medium screens */
+    @media (min-width: 601px) and (max-width: 900px) {
+      .hero {
+        flex-direction: row;
+        padding: 30px 10px;
+      }
+
+      .hero img {
+        max-width: 220px;
+      }
+
+      .hero-text {
+        max-width: 400px;
+      }
+
+      .impact img {
+        max-width: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <!-- Logo image from img folder -->
+    <img src="img/cw_logo-2.png" alt="Charity: Water Logo" class="logo">
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <!-- Family image from img folder -->
+    <img src="img/family.png" alt="Family with clean water">
+    <div class="hero-text">
+      <h1>Every Donation Gives Back Time To Families</h1>
+      <p>
+        Every yellow jug of clean water we provide to families in Africa and India gives hours back 
+        they lost travelling to collect clean water—unlocking time for school, work, and other daily activities. 
+        See how our impact has changed the lives of thousands of families.
+      </p>
+      <!-- The button will now be centered because of text-align: center above -->
+      <a href="#impact" class="btn">See Our Impact</a>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section id="impact" class="impact">
+    <!-- Water comparison image from img folder -->
+    <img src="img/watercomparison.png" alt="Clean vs dirty water comparison">
+    <p>Together, we can bring clean water to more families around the world.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Your donation can change lives. Join us in bringing clean water to families in need.</p>
+    <a href="#donate" class="btn">Donate Now</a>
+  </footer>
+
+  <script>
+    // Beginner-friendly: Fade in family.png and logo right away
+    window.onload = function() {
+      var logo = document.querySelector('img.logo');
+      var familyImg = document.querySelector('img[alt="Family with clean water"]');
+      if (logo) logo.classList.add('visible');
+      if (familyImg) familyImg.classList.add('visible');
+    };
+
+    // Fade in watercomparison.png when it enters the viewport
+    window.addEventListener('scroll', function() {
+      var waterImg = document.querySelector('img[alt="Clean vs dirty water comparison"]');
+      if (waterImg && !waterImg.classList.contains('visible')) {
+        var rect = waterImg.getBoundingClientRect();
+        // If the image is visible in the viewport, fade it in
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          waterImg.classList.add('visible');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
